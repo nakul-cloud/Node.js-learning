@@ -3,8 +3,8 @@
 <% if (user) { %>
   <p>Welcome <%= user.first_name %></p>
   <a href="/log-out">Logout</a>
-  <a href="/new">New Message</a>
-  <a href="/join">Join Club</a>
+  <a href="/messages/new">New Message</a>
+  <a href="/user/join">Join Club</a>
 <% } else { %>
   <form method="POST" action="/log-in">
     <input name="username" placeholder="Email">
@@ -27,7 +27,7 @@
       <% } %>
 
       <% if (user && user.is_admin) { %>
-        <a href="/delete/<%= msg.id %>">Delete</a>
+        <a href="/messages/delete/<%= msg.id %>">Delete</a>
       <% } %>
     </li>
   <% }) %>
