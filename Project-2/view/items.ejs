@@ -1,0 +1,22 @@
+<h1>Items</h1>
+
+<form method="POST" action="/items/create">
+  <input type="hidden" name="category_id" value="<%= categoryId %>">
+
+  <input name="name" placeholder="Item Name">
+  <input name="description" placeholder="Description">
+  <input name="price" placeholder="Price">
+
+  <button>Add Item</button>
+</form>
+
+<ul>
+  <% items.forEach(item => { %>
+    <li>
+      <%= item.name %> - ₹<%= item.price %>
+      <a href="/items/delete/<%= item.id %>/<%= categoryId %>">Delete</a>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/">Back</a>
