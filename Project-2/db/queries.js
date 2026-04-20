@@ -35,10 +35,15 @@ async function createItem(name, desc, price, category_id) {
   );
 }
 
+async function deleteItem(id) {
+  await pool.query("DELETE FROM items WHERE id=$1", [id]);
+}
+
 module.exports = {
   getCategories,
   createCategory,
   deleteCategory,
   getItemsByCategory,
-  createItem
+  createItem,
+  deleteItem
 };

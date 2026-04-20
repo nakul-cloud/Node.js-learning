@@ -11,6 +11,6 @@ app.set("views", path.join(__dirname, "view"));
 app.set("view engine", "ejs");
 
 app.use("/", categoryRouter);
-app.use("/", itemRouter);
+app.use("/items", itemRouter);
 
 app.listen(3000, () => console.log("Server running"));
