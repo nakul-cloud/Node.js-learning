@@ -26,7 +26,9 @@ exports.getUsers = async (req, res) => {
 
 // GET /new
 exports.getForm = (req, res) => {
-  res.render("form");
+  res.render("form", {
+    errors: [],
+  });
 };
 
 // POST /new
