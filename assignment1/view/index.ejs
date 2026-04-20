@@ -1,0 +1,15 @@
+<h1>Usernames</h1>
+
+<form method="GET" action="/">
+  <input name="search" placeholder="Search username">
+  <button>Search</button>
+</form>
+
+<a href="/new">Add User</a>
+<a href="/delete">Delete All</a>
+
+<ul>
+  <% users.forEach(user => { %>
+    <li><%= user.username %></li>
+  <% }) %>
+</ul>
