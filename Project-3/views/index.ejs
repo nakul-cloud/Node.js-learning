@@ -1,0 +1,34 @@
+<h1>Clubhouse</h1>
+
+<% if (user) { %>
+  <p>Welcome <%= user.first_name %></p>
+  <a href="/log-out">Logout</a>
+  <a href="/new">New Message</a>
+  <a href="/join">Join Club</a>
+<% } else { %>
+  <form method="POST" action="/log-in">
+    <input name="username" placeholder="Email">
+    <input name="password" type="password">
+    <button>Login</button>
+  </form>
+  <a href="/sign-up">Sign Up</a>
+<% } %>
+
+<hr>
+
+<ul>
+  <% messages.forEach(msg => { %>
+    <li>
+      <strong><%= msg.title %></strong><br>
+      <%= msg.text %><br>
+
+      <% if (user && user.membership) { %>
+        Author: <%= msg.first_name %>
+      <% } %>
+
+      <% if (user && user.is_admin) { %>
+        <a href="/delete/<%= msg.id %>">Delete</a>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
