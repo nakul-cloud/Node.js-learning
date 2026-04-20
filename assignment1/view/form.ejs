@@ -1,0 +1,16 @@
+<h1>Add Username</h1>
+
+<% if (errors) { %>
+  <ul>
+    <% errors.forEach(e => { %>
+      <li><%= e.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<form method="POST" action="/new">
+  <input name="username" placeholder="Username">
+  <button>Add</button>
+</form>
+
+<a href="/">Back</a>
