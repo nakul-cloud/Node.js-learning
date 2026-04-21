@@ -1,5 +1,7 @@
-const prisma = require("@prisma/client").PrismaClient;
-const client = new prisma();
+const { PrismaClient } = require("@prisma/client");
+const client = new PrismaClient({
+  datasourceUrl: process.env.DATABASE_URL
+});
 
 // CREATE POST (protected)
 exports.createPost = async (req, res) => {

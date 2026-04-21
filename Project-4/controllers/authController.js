@@ -1,8 +1,10 @@
-const prisma = require("@prisma/client").PrismaClient;
+const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const client = new prisma();
+const client = new PrismaClient({
+  datasourceUrl: process.env.DATABASE_URL
+});
 
 // SIGNUP
 exports.signup = async (req, res) => {
